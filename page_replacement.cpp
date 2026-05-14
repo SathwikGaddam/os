@@ -95,25 +95,32 @@ void optimal(){
       printRow(mem,pages[i],'H');
     }
     else{
-      f++;
-      int rep=0,far=-1;
-
-      for(int j=0;j<frames;j++){
-        int nx=INT_MAX;
-        for(int k=i+1;k<n;k++){
-          if(pages[k]==mem[j]){
-            nx=k;
+       f++;
+    int rep=-1;
+    for(int j=0;j<frames;j++){
+        if(mem[j]==-1){
+            rep=j;
             break;
-          }
         }
-        if(nx>far){
-          far=nx;
-          rep=j;
+    }
+    if(rep==-1){
+        int far=-1;
+        for(int j=0;j<frames;j++){
+            int nx=INT_MAX;
+            for(int k=i+1;k<n;k++){
+                if(mem[j]==pages[k]){
+                    nx=k;
+                    break;
+                }
+            }
+            if(nx>far){
+                far=nx;
+                rep=j;
+            }
         }
-      }
-
-      mem[rep]=pages[i];
-      printRow(mem,pages[i],'F');
+    }
+    mem[rep]=pages[i];
+    printRow(mem,pages[i],'F');
     }
   }
   cout<<"Faults="<<f<<" Hits="<<h<<"\n";
