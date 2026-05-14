@@ -28,9 +28,7 @@ int main(){
         cout<<"Page "<<i<<": ";
         cin>>pt[i];
     }
-    int offset_bits = bits(pg);
-    int page_bits   = bits(np);
-    int frame_bits  = bits(nf);
+   
     cout<<"\nLogical -> Physical (Binary)\n\n";
     for(int la=0; la<ps; la++){
         int page = la / pg;
