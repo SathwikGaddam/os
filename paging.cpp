@@ -3,11 +3,6 @@
 #include<bitset>
 using namespace std;
 
-int bits(int x){
-    int b = 0;
-    while((1 << b) < x) b++;
-    return b;
-}
 int main(){
     int ps, pg, nf;
     cout<<"Process size: ";
